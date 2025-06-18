@@ -1,18 +1,15 @@
 
 services:
-###> doctrine/doctrine-bundle ###
-  database:
-    ports:
-      - "5432"
-###< doctrine/doctrine-bundle ###
-
-###> symfony/mailer ###
-  mailer:
-    image: axllent/mailpit
-    ports:
-      - "1025"
-      - "8025"
+  # Override PHP service for development
+  php:
+    volumes:
+      - ./:/var/www/html:cached
     environment:
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
-###< symfony/mailer ###
+      - APP_ENV=dev
+      - APP_DEBUG=1
+      - PHP_IDE_CONFIG=serverName=symfony
+
+  # Override Nginx service for development
+  nginx:
+    ports:
+      - "8080:80"

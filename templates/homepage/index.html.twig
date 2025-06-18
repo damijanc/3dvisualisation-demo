@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    <style>
+        body {
+            background: #f6f8fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            padding: 32px 24px 24px 24px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #1a202c;
+            font-size: 2.2em;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .links {
+            margin-top: 2em;
+        }
+        .links li {
+            margin: 1.2em 0;
+            font-size: 1.1em;
+        }
+        .badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 0.9em;
+            margin-left: 8px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block title %}3D Product Viewer Demo{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>3D Product Viewer Demo</h1>
+        <p>
+            This project demonstrates several approaches for displaying 3D objects on the web.
+            Explore different JavaScript libraries and frameworks to see how you can embed a 3D product view into your e-commerce or showcase website.
+            To keep it simple, we have browser-only implementations. All dependencies are loaded from CDN. Symfony is just used to have a web server that will render the pages.
+        </p>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="{{ path('app_google_model_viewer') }}">model-viewer</a>
+                    <span class="badge">Google</span>
+                    <br>
+                    <small>Easy, standards-based 3D viewer with AR support and minimal setup.</small>
+                </li>
+                <li>
+                    <a href="{{ path('app_tree_js') }}">Three.js</a>
+                    <span class="badge">Three.js</span>
+                    <br>
+                    <small>Highly customizable 3D engine for web, with interactive controls and advanced features.</small>
+                </li>
+                <li>
+                    <a href="{{ path('app_babylon_js') }}">Babylon.js</a>
+                    <span class="badge">Babylon.js</span>
+                    <br>
+                    <small>Powerful, high-performance 3D engine with easy product visualization and PBR support.</small>
+                </li>
+            </ul>
+        </div>
+        <p style="margin-top:2em;color:#6b7280;font-size:0.97em;">
+            Use the links above to try each implementation.
+        </p>
+    </div>
+{% endblock %}
